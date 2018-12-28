@@ -1,11 +1,19 @@
 <template>
-
+  <div>
+    <router-view />
+    <NavFooter />
+  </div>
 </template>
 
 <script>
-  export default {}
+  import NavFooter from './components/NavFooter/NavFooter'
+  export default {
+    components:{
+      NavFooter
+    }
+  }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="less" scoped>
 
 </style>
