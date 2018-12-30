@@ -8,6 +8,7 @@ export default [
   {
     path:'/home',
     component:Home,
+
   },
   {
     path:'/item',
