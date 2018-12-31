@@ -39,6 +39,7 @@
     background-color: #fff;
     display: flex;
     border-top: 1px solid #d9d9d9;
+    z-index: 10;
     a{
       flex: 1;
       display: flex;

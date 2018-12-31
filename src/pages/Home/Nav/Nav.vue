@@ -89,7 +89,7 @@
     width:100%;
     box-sizing: border-box;
     background-color: white;
-    z-index: 11;
+    z-index: 13;
     .home-header-top{
       display: flex;
       align-items:center;
@@ -234,7 +234,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: 12;
     background-color: rgba(33,33,33,0.1);
     &.active{
       display: none;

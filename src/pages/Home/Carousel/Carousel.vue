@@ -27,6 +27,48 @@
         <span>{{kingKong.text}}</span>
       </li>
     </ul>
+    <div class="newPeople">
+      <div class="top">
+        -新人专享礼-
+      </div>
+      <div class="bottom">
+        <div class="b-right">
+          <div class="b-r-top">新人专享礼包</div>
+          <div class="b-r-bottom">
+            <img src="../images/newPer.png" alt="">
+          </div>
+          <div class="animate"></div>
+        </div>
+        <div class="b-left">
+          <div class="b-l-top">
+            <div class="txt">
+              <div class="one">福利社</div>
+              <div class="two">今日特价</div>
+            </div>
+            <div class="pic">
+              <div class="picOne">
+                <span class="new">￥72</span>
+                <span class="old">￥98</span>
+              </div>
+              <div class="picTwo"><img src="../images/chock.png" alt="" /></div>
+            </div>
+          </div>
+          <div class="b-l-top">
+            <div class="txt">
+              <div class="one">新人拼团</div>
+              <div class="two">一元起包邮</div>
+            </div>
+            <div class="pic">
+              <div class="picOne">
+                <span class="new">￥1</span>
+                <span class="old">￥19</span>
+              </div>
+              <div class="picTwo"><img src="../images/yao.png" alt="" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -116,6 +158,120 @@
         width: 1.46667rem;
         height: 1.46667rem;
         margin-bottom: 10px;
+      }
+    }
+  }
+  .newPeople{
+    padding: 0 .4rem;
+    background-color: white;
+    margin: .26667rem 0;
+    padding-bottom: .4rem;
+    overflow: hidden;
+    .top{
+      height: 1.2rem;
+      width: 100%;
+      line-height: 1.2rem;
+      text-align: center;
+      font-family: PingFangSC-Regular;
+      font-size: .42667rem
+    }
+    .bottom{
+      .b-right{
+        position: relative;
+        width: 4.57333rem;
+        height: 5.78667rem;
+        background: #F9E9CF;
+        border-radius: .05333rem;
+        margin-right: .05333rem;
+        float: left;
+        color: #333;
+        .b-r-top{
+          font-family: PingFangSC-Medium;
+          font-size: .42667rem;
+          padding: .4rem 0 0 .4rem;
+        }
+        .b-r-bottom{
+          margin: .49333rem auto;
+          width: 3.44rem;
+          height: 3.42667rem;
+        }
+        .animate{
+          background-image: url('../images/threeArrow.png');
+          position: absolute;
+          width: .4rem;
+          height: .26667rem;
+          bottom: 95px;
+          right: 103px;
+        }
+      }
+      .b-left{
+        float: left;
+        .b-l-top{
+          position: relative;
+          background: #FBE2D3;
+          border-radius: 4px;
+          width: 4.57333rem;
+          height: 2.86667rem;
+          margin-bottom: .05333rem;
+          box-sizing: border-box;
+          padding: .26667rem 0 0 .4rem;
+          .txt{
+            .one{
+              font-family: PingFangSC-Medium;
+              font-size: .42667rem;
+            }
+            .two{
+              color:#7F7F7F;
+              font-size: .32rem;
+              margin-top: 8px;
+            }
+          }
+          .pic{
+            position: absolute;
+            top: 20px;
+            right: 0px;
+            width: 2.66667rem;
+            height: 2.66667rem;
+            .picOne{
+              position: absolute;
+              top: 0px;
+              right: 28px;
+              width: 1.06667rem;
+              height: 1.06667rem;
+              opacity: .8;
+              background: #F59524;
+              border-radius: 50%;
+              color: #fff;
+              text-align: center;
+              z-index: 1;
+              .new{
+                position: absolute;
+                top: 14px;
+                left: 9px;
+                font-size: .32rem;
+                color: #fff;
+              }
+              .old{
+                position: absolute;
+                top: 42px;
+                left: 17px;
+                font-size: .26667rem;
+                text-decoration: line-through
+              }
+            }
+            .picTwo{
+              position: absolute;
+              top: 0px;
+              right: 0px;
+            }
+          }
+        }
+        .b-l-bottom{
+          background: #FFECC2;
+          border-radius: 4px;
+          width: 4.57333rem;
+          height: 2.86667rem
+        }
       }
     }
   }
