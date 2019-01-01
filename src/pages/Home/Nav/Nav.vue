@@ -68,10 +68,11 @@
         return prev+next.clientWidth
       },0);
       ul.style.width = lisWidth +300+'px'
-      new BScroll('.home-header-bottom',{
+      this.scroll = new BScroll('.home-header-bottom',{
         click:true,
         scrollX:true
-      })
+      });
+      console.log(this.scroll)
     },
     methods:{
       toggleNavShow(){

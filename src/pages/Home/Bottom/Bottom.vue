@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="categoryItem" v-for="(item,index) in categoryModule" :key="index" v-if="categoryModule.length>0">
+    <div class="categoryItem" v-for="(cate,index) in category" :key="index" v-if="category.length===8">
       <div class="top">
-        <img :src="item.titlePicUrl" alt="">
+        <img :src="cate.titlePicUrl" alt="">
       </div>
-      <div class="bottom">
-        <ul class="item" ref="itemUl">
-          <li v-for="(item,index) in item.itemList" :key="item.id" class="list">
+      <div class="bottom-which" ref="divUl">
+        <ul class="scroll" ref="itemUl">
+          <li v-for="(item,index) in cate.itemList" :key="item.id" class="list">
             <div class="pic">
               <img :src="item.scenePicUrl" alt="">
             </div>
@@ -42,26 +42,48 @@
   export default {
     computed:{
       ...mapState({
-        categoryModule:state=>state.home.homedata.categoryModule,
+        homedata:state=>state.home.homedata,
       }),
+      category(){
+        return this.homedata.categoryModule
+      },
     },
-    watch:{
-      categoryModule(){
-        this.$nextTick(()=>{
-          const ulList = this.$refs.itemUl;
-          ulList.forEach((item,index)=>{
-            const lis = item.children;
-            console.log(lis);
-            let lisArr = Array.prototype.slice.call(lis);
-            let lisWidth = lisArr.reduce((prev,next)=>{
-              return prev+next.clientWidth;
-            },0);
-            item.style.width = lisWidth +16*index+'px';
-          });
-          new BScroll('.bottom',{
-            click:true,
+    mounted(){
+      if(!this.category){
+        return
+      };
+      this._initScroll();
+    },
+    methods:{
+      _initScroll(){
+        const ulList = this.$refs.itemUl;
+        let lis;
+        ulList.forEach((item,index)=>{
+          lis = item.children;
+          let lisArr = Array.prototype.slice.call(lis);
+          let lisWidth = lisArr.reduce((prev,next)=>{
+            return prev+next.clientWidth;
+          },0);
+          item.style.width = lisWidth +16*index+200+'px';
+
+        });
+        if(!this.scroll) { // 如果scroll还不存在, 创建并保存
+          this.scroll = new BScroll('.bottom-which', {
+            click: true,
             scrollX:true
           })
+          console.log(1)
+        } else {
+          this.scroll.refresh()
+          console.log(2)
+        }
+        console.log(this.scroll)
+      }
+    },
+    watch:{
+      category(){
+        this.$nextTick(()=>{
+          this._initScroll();
         })
       }
     }
@@ -82,10 +104,10 @@
         height: 4.93333rem;
       }
     }
-    .bottom{
+    .bottom-which{
       padding-left:.4rem ;
       overflow: hidden;
-      .item{
+      .scroll{
         overflow: hidden;
         .list{
           float: left;
@@ -134,6 +156,7 @@
 
         }
         .last{
+          float: left;
           width: 2.66667rem;
           height: 2.66667rem;
           margin-right: 0;
