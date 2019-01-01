@@ -22,7 +22,7 @@ time, mark, audio, video, input {
   font-weight: normal;
   vertical-align: baseline;
 }
-body{
+body,html{
   background-color: #F4F4F4;
 }
 

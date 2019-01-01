@@ -3,7 +3,7 @@ import Item from '../pages/Item/Item'
 import Topic from '../pages/Topic/Topic'
 import Cart from '../pages/Cart/Cart'
 import Profile from '../pages/Profile/Profile'
-
+import ItemInfo from '../pages/Item/ItemInfo/ItemInfo'
 export default [
   {
     path:'/home',
@@ -15,6 +15,15 @@ export default [
   {
     path:'/item',
     component:Item,
+    children:[
+      {
+        path:'/item/cateList/:id',
+        component:ItemInfo,
+        meta: {
+          showFooter: true
+        },
+      }
+    ],
     meta: {
       showFooter: true
     }

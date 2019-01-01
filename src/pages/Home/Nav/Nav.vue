@@ -3,10 +3,7 @@
     <div class="home-header">
       <div class="home-header-top">
         <a href="javascript:;" class="left"></a>
-        <a class="middle">
-          <i class="iconfont icon-sousuo"></i>
-          <span> 搜索商品，共xxx个好物</span>
-        </a>
+        <Search />
         <a class="right">登录</a>
       </div>
       <div class="home-header-bottom">

@@ -1,17 +1,29 @@
 <template>
-<span>qqqqq</span>
+  <div>
+    <div class="p-header"></div>
+  </div>
 </template>
 
 <script>
-  export default {}
+  export default {
+    mounted(){
+      let meta = document.createElement("meta");
+      meta.setAttribute("name",'viewport')
+      meta.setAttribute("content",'width=device-width,initial-scale=1')
+      document.head.appendChild(meta)
+    },
+    beforeDestroy(){
+      let meta = document.createElement("meta");
+      meta.setAttribute("name",'viewport')
+      meta.setAttribute("content",'width=device-width,initial-scale=0.5')
+      document.head.appendChild(meta)
+    }
+  }
 </script>
 
 <style lang="less" scoped>
-  /*html{*/
-    /*font-size: 12px;*/
-  /*}*/
- /*body{*/
-   /*height: 100%;*/
-   /*width: 100%;*/
- /*}*/
+  .p-header{
+    height: 1.16rem;
+    background-color: #fafafa;
+  }
 </style>
