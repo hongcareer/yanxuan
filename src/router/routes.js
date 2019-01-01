@@ -8,19 +8,30 @@ export default [
   {
     path:'/home',
     component:Home,
-
+    meta: {
+      showFooter: true
+    }
   },
   {
     path:'/item',
     component:Item,
+    meta: {
+      showFooter: true
+    }
   },
   {
     path:'/topic',
     component:Topic,
+    meta: {
+      showFooter: true
+    }
   },
   {
     path:'/cart',
     component:Cart,
+    meta: {
+      showFooter: true
+    }
   },
   {
     path:'/profile',

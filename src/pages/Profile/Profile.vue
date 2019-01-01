@@ -1,5 +1,5 @@
 <template>
-  <h1>profile</h1>
+<span>qqqqq</span>
 </template>
 
 <script>
@@ -7,5 +7,11 @@
 </script>
 
 <style lang="less" scoped>
-
+  /*html{*/
+    /*font-size: 12px;*/
+  /*}*/
+ /*body{*/
+   /*height: 100%;*/
+   /*width: 100%;*/
+ /*}*/
 </style>
