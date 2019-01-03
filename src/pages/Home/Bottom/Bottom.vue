@@ -4,7 +4,7 @@
       <div class="top">
         <img :src="cate.titlePicUrl" alt="">
       </div>
-      <div class="bottom-which" ref="divUl">
+      <div class="bottom-which">
         <ul class="scroll" ref="itemUl">
           <li v-for="(item,index) in cate.itemList" :key="item.id" class="list">
             <div class="pic">
@@ -67,16 +67,27 @@
           item.style.width = lisWidth +16*index+200+'px';
 
         });
-        if(!this.scroll) { // 如果scroll还不存在, 创建并保存
-          this.scroll = new BScroll('.bottom-which', {
+        //解决每个盒子横向滑屏的问题
+        const divList = document.getElementsByClassName('bottom-which')
+        let divs = Array.prototype.slice.call(divList);
+        for (var i = 0; i <divs.length ; i++) {
+          let liss = divList[i]
+          console.log(liss)
+          this.scroll = new BScroll(divList[i], {
             click: true,
             scrollX:true
           })
-          console.log(1)
-        } else {
-          this.scroll.refresh()
-          // console.log(2)
-        }
+          // }
+        };
+
+        // if(!this.scroll) { // 如果scroll还不存在, 创建并保存
+        //   this.scroll = new BScroll('.bottom-which', {
+        //     click: true,
+        //     scrollX:true
+        //   })
+        // } else {
+        //   this.scroll.refresh()
+        // }
         // console.log(this.scroll)
       }
     },

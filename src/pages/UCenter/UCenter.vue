@@ -4,7 +4,7 @@
     <div id="header">
       <div class="left">
         <img src="./images/head.png" alt="">
-        <div class="l-top">{{}}</div>
+        <div class="l-top">{{user}}</div>
         <div class="b-top">普通用户</div>
       </div>
       <div class="right">
@@ -84,15 +84,22 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   import {MessageBox} from 'mint-ui';
 
   export default {
+    computed:{
+      ...mapState({
+        user:state => state.user.user
+      })
+    },
     methods:{
       logOut(){
         console.log(1)
         MessageBox.confirm('确定退出吗?')
           .then(action => {
-
+            this.$store.dispatch('reqLogOut');
+            this.$router.replace('/profile')
           })
           .catch(action => {
 

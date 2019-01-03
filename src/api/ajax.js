@@ -7,7 +7,11 @@ export default function ajax(url,data={},method='GET'){
       //路径
       if(data.page){
         url = url+`?page=${data.page}&size=${data.size}&exceptIds=${data.exceptIds}`
+      };
+      if(data.mb){
+        url = url+`?mb=${data.mb}&pd=${data.pd}&pkid=${data.pkid}&topURL=${data.topURL}&rtid=${data.rtid}&nocache=${data.nocache}`
       }
+      console.log(url)
       promise = axios.get(url,data)
         .then((response)=>{
           resolve(response.data)

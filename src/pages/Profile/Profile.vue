@@ -40,18 +40,19 @@
     <div class="p-way-phone" :class="{active:!isShowPhone || isShowReg}">
       <div class="logo"><img src="./image/logo.png" alt=""></div>
       <div class="loginWay">
-        <input type="text" :placeholder="toggleId == '1'?'请输入手机号':'邮箱账号'" class="one">
+        <input type="text" :placeholder="toggleId == '1'?'请输入手机号':'邮箱账号'" class="one" v-model="user">
         <div class="getCode" v-if="toggleId == '1'" @click="getCode">
           {{isGetCode?`${allTime}s后重新获取`:'获取验证码'}}
         </div>
         <div class="line1"></div>
-        <input type="text" :placeholder="toggleId == '1'?'请输入短信验证码':'密码'" class="two">
+        <input type="text" :placeholder="toggleId == '1'?'请输入短信验证码':'密码'" class="two" v-model="code">
         <div class="line2"></div>
         <div class="prom">
           <span>{{toggleId == '1'?'遇到问题':'注册账号'}}</span>
           <span>{{toggleId == '1'?'使用密码验证登录':'忘记密码'}}</span>
         </div>
-        <div class="loginWay1" @click="$router.replace('/ucenter')">
+        <span v-if="errMsg" class="errMsg">{{errMsg}}</span>
+        <div class="loginWay1" @click="goToUser">
           <span class="phone">登录</span>
         </div>
         <div class="loginWay1 diff"  @click="changeToPhone(1)">
@@ -90,6 +91,7 @@
 </template>
 
 <script>
+  // import {reqCode} from '../../api/index';
   export default {
     data(){
       return {
@@ -98,19 +100,28 @@
         toggleId:'',
         regId:'',
         isGetCode:false,
-        allTime:0
+        allTime:0,
+        //验证码参数
+        user:'',
+        code:'',
+        errMsg:''
       }
     },
     methods:{
       changeToPhone(id){
         this.toggleId = id;
-          this.isShowPhone = !this.isShowPhone
+          this.isShowPhone = !this.isShowPhone;
       },
       goToReg(id){
         this.regId = id;
-        this.isShowReg = !this.isShowReg
+        this.isShowReg = !this.isShowReg;
       },
       getCode(){
+        const {user} = this;
+        if(!(/^1[34578]\d{9}$/.test(this.user))){
+          alert("手机号码有误，请重新输入");
+          return;
+        }
         this.isGetCode = true;
         this.allTime = 30;
         let intervalId = setInterval(()=>{
@@ -121,6 +132,20 @@
             clearInterval(intervalId)
           }
         },1000);
+      },
+      goToUser(){
+        const {user,code} = this;
+        let result  = user.trim();
+        let codeMes  = code.trim();
+        if( !result){
+          this.errMsg = '请输入电话号码';
+          return;
+        }else if(!codeMes){
+          this.errMsg = '请输入验证码';
+          return;
+        }
+        this.$store.dispatch('saveUser',result);
+        this.$router.replace('/ucenter')
       }
     },
     mounted(){
@@ -344,6 +369,13 @@
             float: right;
           }
         }
+      }
+      .errMsg{
+        position: absolute;
+        top: 231px;
+        left: 48px;
+        font-size: 14px;
+        color: #b4282d;
       }
       .loginWay1{
         text-align: center;

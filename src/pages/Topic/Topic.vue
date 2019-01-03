@@ -84,15 +84,22 @@
           this.BScroll = new BScroll('.scroll',{
             click:true,
             pullUpLoad: {
-              threshold: -30// 当上拉距离超过30px时触发 pullingUp 事件
+              threshold: -100// 当上拉距离超过30px时触发 pullingUp 事件
             }
           })
         }else{
-          const _this = this;
           this.BScroll.on('pullingUp',()=>{
-            _this.$store.dispatch('getAutoOne');
-            this.scroll.finishPullUp()
-          })
+            console.log('xxx');
+            this.BScroll.finishPullUp()
+            if(this.intervalId){
+              clearInterval(this.intervalId)
+            }
+            this.intervalId = setTimeout(()=>{
+              clearInterval(this.intervalId)
+              this.$store.dispatch('getAutoOne');
+              this.BScroll.finishPullUp()
+            },1000)
+          });
           this.BScroll.refresh()
         }
       },
@@ -101,7 +108,7 @@
         meta.setAttribute("name",'viewport')
         meta.setAttribute("content",'width=device-width,initial-scale=1')
         document.head.appendChild(meta);
-      }
+      },
     },
     watch:{
       totalManual(){
@@ -121,6 +128,7 @@
 <style lang="less" scoped>
   @b:1.33333333;
   .topic{
+    position: relative;
     width:100%;
     height: 667px;
     #header{
@@ -216,10 +224,12 @@
       }
     }
     .scroll{
+      position: absolute;
+      top:90px;
+      left: 0;
       width:100%;
       height: 100%;
       .menu{
-        margin: 100px 0;
         margin-bottom: 50px;
         .main{
           .choose{
