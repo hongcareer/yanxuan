@@ -20,7 +20,7 @@
           <div class="main" v-if="totalManual.length>0" v-for="(manual,index) in totalManual" :key="index">
             <div class="choose" v-for="(topic,index) in manual.topics"
                  :key="topic.topicId" v-if="topic.type == '0'">
-              <div class="c-name">
+              <div class="c-name" v-if="topic.avatar">
                 <img :src="topic.avatar" alt="">
                 <span>{{topic.nickname}}</span>
               </div>
@@ -66,26 +66,49 @@
   export default {
     mounted(){
       //rem适配
-      let meta = document.createElement("meta");
-      meta.setAttribute("name",'viewport')
-      meta.setAttribute("content",'width=device-width,initial-scale=1')
-      document.head.appendChild(meta);
-
+      this._initRem()
       this.$store.dispatch('getTabs');
       this.$store.dispatch('getManual');
       // this.$store.dispatch('getAutoOne');
-      new BScroll('.scroll',{
-        click:true
-      })
+      this._initScroll();
     },
     computed:{
       ...mapState({
         totalTabs:state => state.topic.totalTabs,
         totalManual:state => state.topic.totalManual
       }),
-
     },
-
+    methods:{
+      _initScroll(){
+        if(!this.BScroll){
+          this.BScroll = new BScroll('.scroll',{
+            click:true,
+            pullUpLoad: {
+              threshold: -30// 当上拉距离超过30px时触发 pullingUp 事件
+            }
+          })
+        }else{
+          const _this = this;
+          this.BScroll.on('pullingUp',()=>{
+            _this.$store.dispatch('getAutoOne');
+            this.scroll.finishPullUp()
+          })
+          this.BScroll.refresh()
+        }
+      },
+      _initRem(){
+        let meta = document.createElement("meta");
+        meta.setAttribute("name",'viewport')
+        meta.setAttribute("content",'width=device-width,initial-scale=1')
+        document.head.appendChild(meta);
+      }
+    },
+    watch:{
+      totalManual(){
+        this._initRem();
+        this._initScroll();
+      }
+    },
     beforeDestroy(){
       let meta = document.createElement("meta");
       meta.setAttribute("name",'viewport')

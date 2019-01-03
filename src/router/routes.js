@@ -54,4 +54,8 @@ export default [
       showFooter: true
     }
   },
+  {
+    path:'/',
+    redirect:'/home'
+  }
 ]

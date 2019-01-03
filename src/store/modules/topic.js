@@ -12,7 +12,7 @@ import {
 const state = {
   totalTabs:[],
   totalManual:[],
-  page:1,
+  page:'',
   size:5,
   exceptIds:'6409,6201,6408,6410,6490,6488,5821,5716,5711,5641,3583,6383,6242,4513,5950,4035,5823,5867,6458,2876,5714,5712,5868,3438,4648,4001,3334,5942,518,5578,4024,4061,3629,3383'
 };
@@ -33,10 +33,10 @@ const actions = {
   },
   //上拉自动获取数据
   async getAutoOne({commit}){
-    const {page,size,exceptIds} = state
+    let {page,size,exceptIds} = state;
+    page = 2;
     const result = await reqAutoOne({page,size,exceptIds});
     if(result.code == 200){
-      console.log(0)
       let totalManualOne = result.data;
       commit(RECEIVE_AUTO_ONE,{totalManualOne})
     }
@@ -50,7 +50,6 @@ const mutations ={
     state.totalManual = totalManual
   },
   [RECEIVE_AUTO_ONE](state,{totalManualOne}){
-    console.log(totalManualOne)
     for (var i = 0; i < totalManualOne.result.length; i++) {
       state.totalManual.push(totalManualOne.result[i])
     }
