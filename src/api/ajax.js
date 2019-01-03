@@ -4,7 +4,11 @@ export default function ajax(url,data={},method='GET'){
   return new Promise((resolve, reject)=>{
     let promise;
     if(method === 'GET'){
-      promise = axios.get(url,{data})
+      //路径
+      if(data.page){
+        url = url+`?page=${data.page}&size=${data.size}&exceptIds=${data.exceptIds}`
+      }
+      promise = axios.get(url,data)
         .then((response)=>{
           resolve(response.data)
         })
