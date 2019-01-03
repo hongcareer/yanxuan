@@ -16,7 +16,7 @@
       <span><i class="iconfont icon-gouwuche"></i></span>
       <span>购物车</span>
     </a>
-    <a href="javascript:;" @click="$router.replace('/profile')" :class="{current:$route.path === '/profile'}">
+    <a href="javascript:;" @click="$router.replace('/profile')" :class="{current:$route.path === '/profile' || '/ucenter'}">
       <span><i class="iconfont icon-geren"></i></span>
       <span>个人</span>
     </a>

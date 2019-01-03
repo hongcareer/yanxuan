@@ -75,9 +75,9 @@
           console.log(1)
         } else {
           this.scroll.refresh()
-          console.log(2)
+          // console.log(2)
         }
-        console.log(this.scroll)
+        // console.log(this.scroll)
       }
     },
     watch:{

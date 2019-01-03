@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import NavFooter from './components/NavFooter/NavFooter'
+  import NavFooter from './components/NavFooter/NavFooter';
   export default {
     mounted(){
       this.$store.dispatch('getHomeData')

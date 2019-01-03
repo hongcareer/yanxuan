@@ -1,0 +1,250 @@
+<template>
+<div>
+  <div class="pers">
+    <div id="header">
+      <div class="left">
+        <img src="./images/head.png" alt="">
+        <div class="l-top">{{}}</div>
+        <div class="b-top">普通用户</div>
+      </div>
+      <div class="right">
+        <img src="./images/first.png" alt="" class="first">
+        <div class="sec"></div>
+        <div class="vip">
+          <span class="left"></span>
+          <span class="right1">超级会员</span>
+          <span class="right2">立即试用</span>
+        </div>
+      </div>
+    </div>
+    <ul id="menu">
+      <li>
+        <div class="top"></div>
+        <div class="bot">我的订单</div>
+      </li>
+      <li>
+        <div class="top"></div>
+        <div class="bot">我的订单</div>
+      </li>
+      <li>
+        <div class="top"></div>
+        <div class="bot">我的订单</div>
+      </li>
+      <li>
+        <div class="top"></div>
+        <div class="bot">我的订单</div>
+      </li>
+      <li>
+        <div class="top"></div>
+        <div class="bot">我的订单</div>
+      </li>
+      <li>
+        <div class="top"></div>
+        <div class="bot">我的订单</div>
+      </li>
+      <li>
+        <div class="top"></div>
+        <div class="bot">我的订单</div>
+      </li>
+      <li>
+        <div class="top"></div>
+        <div class="bot">我的订单</div>
+      </li>
+      <li>
+        <div class="top"></div>
+        <div class="bot">我的订单</div>
+      </li>
+      <li>
+        <div class="top"></div>
+        <div class="bot">我的订单</div>
+      </li>
+      <li>
+        <div class="top"></div>
+        <div class="bot">我的订单</div>
+      </li>
+      <li>
+        <div class="top"></div>
+        <div class="bot">我的订单</div>
+      </li>
+      <li>
+        <div class="top"></div>
+        <div class="bot">我的订单</div>
+      </li>
+      <li>
+        <div class="top"></div>
+        <div class="bot">我的订单</div>
+      </li>
+    </ul>
+    <!--<div class="logout" @click="logOut">-->
+      <!--退出登录-->
+    <!--</div>-->
+    <mt-button type="danger" style="width: 100%" @click="logOut" class="logout">退出登陆</mt-button>
+  </div>
+</div>
+</template>
+
+<script>
+  import {MessageBox} from 'mint-ui';
+
+  export default {
+    methods:{
+      logOut(){
+        console.log(1)
+        MessageBox.confirm('确定退出吗?')
+          .then(action => {
+
+          })
+          .catch(action => {
+
+          })
+      }
+    },
+  }
+</script>
+
+<style lang="less" scoped>
+  .pers{
+    padding-bottom: 50px;
+    #header{
+      position: relative;
+      height: 3.6rem;
+      background-image: url('./images/bg.png');
+      background-size: 100%;
+      background-position: bottom center;
+      padding-left: .4rem;
+      overflow: hidden;
+      .left{
+        position: relative;
+        padding: .85333rem 0;
+        width: 7.2rem;
+        img{
+          vertical-align: middle;
+          width: 1.89333rem;
+          height: 1.89333rem;
+          border-radius: 50%
+        }
+        div{
+          position: absolute;
+          top: 100px;
+          left: 173px;
+          color: #fff;
+          font-size: .48rem;
+          line-height: 1.2;
+          text-align: left;
+          margin-bottom: .13333rem;
+          &:last-child{
+            font-size: .37333rem;
+            top: 145px;
+          }
+        }
+      }
+      .right{
+        position: absolute;
+        top: 0;
+        right: 0;
+        float: right;
+        width: 2.8rem;
+        padding-left: .22667rem;
+        height: 100%;
+        .vip{
+          position: absolute;
+          top: 1.38667rem;
+          right: -10px;
+          width: 2.70667rem;
+          height: 1.12rem;
+          background: #444;
+          border-top-left-radius: .85333rem;
+          border-bottom-left-radius: .85333rem;
+          overflow: hidden;
+          .left{
+            display: inline-block;
+            margin: auto .12rem;
+            width: .74667rem;
+            height: .74667rem;
+            background-repeat: no-repeat;
+            background-position: 0 -151px;
+            background-image: url("./images/sbg.png");
+            background-size: .85333rem 15.68rem;
+          }
+          .right1{
+            position: absolute;
+            top: 15px;
+            right: 18px;
+            color: #EDE7DB;
+            font-size: .34667rem;
+            line-height: .48rem;
+          }
+          .right2{
+            position: absolute;
+            top: 52px;
+            right: 44px;
+            color: #EDE7DB;
+            font-size: .26667rem;
+            line-height: .37333rem;
+          }
+        }
+        .first{
+          width: .58667rem;
+          height: .58667rem;
+          position: absolute;
+          right: 1.41333rem;
+          top: .34667rem;
+        }
+        .sec{
+          position: absolute;
+          right: .18667rem;
+          top: .21333rem;
+          width: .85333rem;
+          height: .85333rem;
+          background-image: url('./images/sbg.png');
+          background-position: 0px 1082px;;
+          background-size: 100%
+        }
+      }
+    }
+    #menu{
+      overflow: hidden;
+      background-color: white;
+      li{
+        box-sizing: border-box;
+        float: left;
+        height: 2.4rem;
+        padding-top: .6rem;
+        text-align: center;
+        width: 33.33333%;
+        border-right: 1px solid rgba(0,0,0,.15);
+        border-bottom: 1px solid rgba(0,0,0,.15);
+        .top{
+          width: .66667rem;
+          height: .66667rem;
+          margin: 0 auto;
+          margin-bottom: .21333rem;
+          background-position: 0 -10.32rem;
+          background-image: url("./images/sbg.png");
+          background-repeat: no-repeat;
+          background-size: .85333rem 15.68rem;
+        }
+        .bot{
+          text-align: center;
+          font-size: .32rem;
+          line-height: 1;
+          color: #333;
+        }
+      }
+    }
+    .logout{
+      margin-top: 40px;
+      margin-bottom: 75px;
+      height: 1.28rem;
+      line-height: 1.28rem;
+      width: 100%;
+      border: 1px solid #fff;
+      background-color: #fff;
+      color: #333;
+      text-align: center;
+      font-size: .37333rem;
+      border-radius: 4px;
+    }
+  }
+
+</style>

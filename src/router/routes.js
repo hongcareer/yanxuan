@@ -3,7 +3,8 @@ import Item from '../pages/Item/Item'
 import Topic from '../pages/Topic/Topic'
 import Cart from '../pages/Cart/Cart'
 import Profile from '../pages/Profile/Profile'
-import ItemInfo from '../pages/Item/ItemInfo/ItemInfo'
+import ItemInfo from '../pages/Item/ItemInfo/ItemInfo';
+import UCenter from '../pages/UCenter/UCenter'
 export default [
   {
     path:'/home',
@@ -45,5 +46,12 @@ export default [
   {
     path:'/profile',
     component:Profile,
+  },
+  {
+    path:'/ucenter',
+    component:UCenter,
+    meta: {
+      showFooter: true
+    }
   },
 ]
