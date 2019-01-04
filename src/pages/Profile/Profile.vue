@@ -3,7 +3,7 @@
     <div class="p-header">
       <span class="p-h-one" @click="$router.replace('/home')"></span>
       <span class="p-h-two"></span>
-      <span class="p-h-three"></span>
+      <span class="p-h-three" @click="$router.replace('/searchitem')"></span>
       <span class="p-h-forth" @click="$router.replace('/cart')"></span>
     </div>
     <div class="p-way-footer" :class="{active:isShowPhone || isShowReg}">

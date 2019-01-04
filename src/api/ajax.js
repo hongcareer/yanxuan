@@ -11,6 +11,9 @@ export default function ajax(url,data={},method='GET'){
       if(data.mb){
         url = url+`?mb=${data.mb}&pd=${data.pd}&pkid=${data.pkid}&topURL=${data.topURL}&rtid=${data.rtid}&nocache=${data.nocache}`
       }
+      if(data.keywordPrefix){
+        url = url+`?keywordPrefix=${data.keywordPrefix}`
+      }
       console.log(url)
       promise = axios.get(url,data)
         .then((response)=>{

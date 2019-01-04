@@ -1,31 +1,31 @@
 <template>
   <footer id="footer">
-    <a href="javascript:;"@click="changePath(1)" :class="{current:num == 1}">
+    <a href="javascript:;"@click="changePath(1)"
+       :class="{current:num == 1 || $route.path === '/home'}">
       <span><i class="iconfont icon-shouye"></i></span>
       <span>首页</span>
     </a>
-    <a href="javascript:;" @click="changePath(2)" :class="{current:num == 2}">
+    <a href="javascript:;" @click="changePath(2)"
+       :class="{current:num == 2 || $route.path === '/item/cateList'}">
       <span><i class="iconfont icon-fenlei"></i></span>
       <span>分类</span>
     </a>
-
-
-    <!--<a href="javascript:;" @click="$router.replace('/topic')" :class="{current:$route.path === '/topic'}">-->
-      <!--<span><i class="iconfont icon-tupian"></i></span>-->
-      <!--<span>识物</span>-->
-    <!--</a>-->
-    <a href="javascript:;" @click="changePath(3)" :class="{current:num == 3}">
+    <a href="javascript:;" @click="changePath(3)"
+       :class="{current:num == 3 && $route.path === '/topic'
+       || $route.path === '/topic/9' || $route.path === '/topic/4'
+       || $route.path === '/topic/5' || $route.path === '/topic/7'
+       || $route.path === '/topic/6'
+       }">
       <span><i class="iconfont icon-tupian"></i></span>
       <span>识物</span>
     </a>
-
-
-
-    <a href="javascript:;" @click="changePath(4)" :class="{current:num == 4}">
+    <a href="javascript:;" @click="changePath(4)"
+       :class="{current:$route.path === '/cart'}">
       <span><i class="iconfont icon-gouwuche"></i></span>
       <span>购物车</span>
     </a>
-    <a href="javascript:;" @click="changePath(5)" :class="{current:num == 5}">
+    <a href="javascript:;" @click="changePath(5)"
+       :class="{current:num == 5 && $route.path === '/profile' || $route.path === '/ucenter'} ">
       <span><i class="iconfont icon-geren"></i></span>
       <span>个人</span>
     </a>
@@ -36,7 +36,8 @@
   export default {
     data(){
       return {
-        num:1
+        num:'',
+        path2:''
       }
     },
     methods:{
@@ -53,6 +54,11 @@
         }else if(this.num == 5){
           this.$router.push('/profile')
         }
+      }
+    },
+    computed:{
+      path(){
+        return this.path2 = this.$route.path;
       }
     }
   }

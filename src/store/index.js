@@ -4,6 +4,7 @@ import home from './modules/home';
 import item from './modules/item'
 import topic from './modules/topic';
 import user from './modules/user';
+import search from './modules/search'
 
 Vue.use(Vuex);
 export default new Vuex.Store({
@@ -11,6 +12,7 @@ export default new Vuex.Store({
     home,
     item,
     topic,
-    user
+    user,
+    search
   }
 })

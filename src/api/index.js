@@ -13,14 +13,10 @@ export const reqAutoOne = (data) => ajax(BASE+`/topic/v1/find/recAuto.json`,data
 
 //获取验证码--失败
 export const reqCode = (data) => ajax(BASE+`/dl/yd/lsm`,data)
-//https://dl.reg.163.com/dl/yd/lsm?
-// mb=18833872936
-// &pd=yanxuan_web
-// &pkid=pXPYGTc
-// &topURL=http%3A%2F%2Fm.you.163.com%2Fu%2Flogin%3Fcallback%3D%252Fucenter
-// &rtid=WTWZPLVvGZ4Sgb5J65vBzhHiB1LNlUty
-// &nocache=1546513301467
 
-//https://dl.reg.163.com/dl/yd/lsm?mb=13811500752&pd=yanxuan_web&pkid=pXPYGTc&topURL=http%3A%2F%2Fm.you.163.com%2Fu%2Flogin%3Fcallback%3D%252Fucenter&rtid=OP5aqt09ju8E8t8jcKbLVx1dhDLFr7Yq&nocache=1546518302872
-//http://localhost:8080/api/zc/yd/ini?mb=18833872936&pd=yanxuan_web&pkid=pXPYGTc&topURL=http%3A%2F%2Fm.you.163.com%2Fu%2Flogin%3Fcallback%3D%252Fucenter&rtid=WTWZPLVvGZ4Sgb5J65vBzhHiB1LNlUty&nocache=1546513301467
-// https://dl.reg.163.com/dl/yd/lsm?mb=18833872936&pd=yanxuan_web&pkid=pXPYGTc&topURL=http%3A%2F%2Fm.you.163.com%2Fu%2Flogin%3Fcallback%3D%252Fucenter&rtid=mJbqlBAua3SchMHplN5VmASEpRkMapbI&nocache=1546518973592
+//搜索http://m.you.163.com/xhr/search/init.json?csrf_token=12c1977f99a1cbb725af3312b9e28aab
+export const reqSeach = ({csrf_token}) =>ajax(BASE+'/xhr/search/init.json',{csrf_token},'POST')
+
+//自动搜索http://m.you.163.com/xhr/search/searchAutoComplete.json?csrf_token=12c1977f99a1cbb725af3312b9e28aab
+export const reqAutoSearch = (data) =>ajax(BASE+'/xhr/search/searchAutoComplete.json',data)
+

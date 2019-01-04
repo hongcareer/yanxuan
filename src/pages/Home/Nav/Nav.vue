@@ -4,7 +4,7 @@
       <div class="home-header-top">
         <a href="javascript:;" class="left"></a>
         <Search />
-        <a class="right">登录</a>
+        <a class="right" @click="$router.replace('/profile')">登录</a>
       </div>
       <div class="home-header-bottom">
         <ul class="partShow" ref="partShowUl" :class="{active:!isShow}">

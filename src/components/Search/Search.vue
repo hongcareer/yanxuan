@@ -1,5 +1,5 @@
 <template>
-  <a class="middle">
+  <a class="middle" @click="$router.push('/searchitem')">
     <i class="iconfont icon-sousuo"></i>
     <span> 搜索商品，共{{totalNumber}}个好物</span>
   </a>

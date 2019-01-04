@@ -6,4 +6,6 @@ export const RECEIVE_MANUAL = 'receive_manual';//获取topic中的tabs
 export const RECEIVE_AUTO_ONE = 'receive_auto_one';//获取topic中的tabs
 export const RECEIVE_USER = 'receive_user';//获取用户信息
 export const RECEIVE_LOGOUT = 'receive_logout';//登出
+export const RECEIVE_SEARCH = 'receive_search';//搜索信息
+export const RECEIVE_AUTO_SEARCH = 'receive_auto_search';//自动搜索信息
 
