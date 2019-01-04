@@ -14,7 +14,7 @@ export default [
     }
   },
   {
-    path:'/item',
+    path:'/item/cateList',
     component:Item,
     children:[
       {
@@ -32,9 +32,19 @@ export default [
   {
     path:'/topic',
     component:Topic,
+    children:[
+      {
+        path:'/topic/:id',
+        component:ItemInfo,
+        meta: {
+          showFooter: true
+        },
+      }
+    ],
     meta: {
       showFooter: true
-    }
+    },
+    redirect: '/topic/9'
   },
   {
     path:'/cart',

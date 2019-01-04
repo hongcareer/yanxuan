@@ -4,14 +4,14 @@
       <Search />
     </div>
     <div class="left">
-      <ul class="leftList">
-        <li v-for="(category,index) in categoryL1List" @click="$router.push(`/item/cateList/${category.id}`)"
-            :class="{active:$route.path === `/item/cateList/${category.id}`}" :key="index">
-          {{category.name}}
-          <div class="line" :class="{active:$route.path === `/item/cateList/${category.id}`}"></div>
-        </li>
-      </ul>
-    </div>
+        <ul class="leftList">
+          <li v-for="(category,index) in categoryL1List" @click="$router.push(`/item/cateList/${category.id}`)"
+              :class="{active:$route.path === `/item/cateList/${category.id}`}" :key="index">
+            {{category.name}}
+            <div class="line" :class="{active:$route.path === `/item/cateList/${category.id}`}"></div>
+          </li>
+        </ul>
+      </div>
     <ItemInfo :categoryL1List="categoryL1List"/>
   </div>
 </template>
@@ -65,52 +65,56 @@
     box-sizing: border-box;
     background-color: #fff;
   }
+
+
   .left{
-    position: absolute;
-    top: 91px;
-    left: 0;
-    width: 2.16rem;
-    height: 100%;
-    background-color: #fff;
-    .leftList{
-      padding-bottom: 1.84rem;
-      overflow: hidden;
-      li{
-        position: relative;
-        margin-top: .53333rem;
-        width: 100%;
-        height: .66667rem;
-        text-align: center;
-        border: none;
-        color: #333;
-        font-size: .37333rem;
-        line-height: .66667rem;
-        &.active{
-          color: #ab2b2b;
-        }
-        .line{
-          position: absolute;
-          top: 0px;
-          left: 0px;
-          width: .08rem;
+      position: absolute;
+      top: 91px;
+      left: 0;
+      width: 2.16rem;
+      height: 1150px;
+      background-color: #fff;
+      .leftList{
+        padding-bottom: 1.84rem;
+        overflow: hidden;
+        li{
+          position: relative;
+          margin-top: .53333rem;
+          width: 100%;
           height: .66667rem;
-          background-color: #fff;
+          text-align: center;
+          border: none;
+          color: #333;
+          font-size: .37333rem;
+          line-height: .66667rem;
           &.active{
-            background-color: #ab2b2b;
+            color: #ab2b2b;
+          }
+          .line{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: .08rem;
+            height: .66667rem;
+            background-color: #fff;
+            &.active{
+              background-color: #ab2b2b;
+            }
           }
         }
-      }
 
+      }
+      &:after{
+        content: '';
+        position: absolute;
+        background-color: rgba(0,0,0,.15);
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        transform-origin: 100% 50% 0;
+        right: 0;
+      }
     }
-    &:after{
-      content: '';
-      position: absolute;
-      background-color: rgba(0,0,0,.15);
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      transform-origin: 100% 50% 0;
-      right: 0;
-    }
-  }
+
+
 </style>

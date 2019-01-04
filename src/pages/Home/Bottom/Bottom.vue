@@ -72,7 +72,6 @@
         let divs = Array.prototype.slice.call(divList);
         for (var i = 0; i <divs.length ; i++) {
           let liss = divList[i]
-          console.log(liss)
           this.scroll = new BScroll(divList[i], {
             click: true,
             scrollX:true

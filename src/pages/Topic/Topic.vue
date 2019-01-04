@@ -11,7 +11,9 @@
         </div>
         <div class="line1"></div>
         <div class="t-middle">
-          <span v-for="(tab,index) in totalTabs" :key="index" :class="{active:tab.tabId === 9}">{{tab.tabName}}</span>
+          <span v-for="(tab,index) in totalTabs" :key="index"
+                :class="{active:$route.path === `/topic/${tab.tabId}`}"
+                @click="$router.push(`/topic/${tab.tabId}`)">{{tab.tabName}}</span>
         </div>
         <div class="line2"></div>
       </div>
@@ -89,7 +91,6 @@
           })
         }else{
           this.BScroll.on('pullingUp',()=>{
-            console.log('xxx');
             this.BScroll.finishPullUp()
             if(this.intervalId){
               clearInterval(this.intervalId)
