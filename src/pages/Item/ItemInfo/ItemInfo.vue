@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="right" v-if="categoryL1List">
+    <div class="right" v-if="categoryL1List && id == '1022001'">
       <div class="banner" :style="{backgroundImage:`url(${categoryL1List[0].wapBannerUrl})`}"></div>
       <div class="cateList">
         <ul>
@@ -13,23 +13,72 @@
         </ul>
       </div>
     </div>
+<!--//2-->
+    <div class="right" v-if="categoryL1List && id == '109224000'">
+      <div class="banner" :style="{backgroundImage:`url(${categoryL1List[1].wapBannerUrl})`}"></div>
+      <div class="cateList">
+        <ul>
+          <li v-for="(subCate,index) in categoryL1List[1].subCateList" :key="index">
+            <div class="pic">
+              <img :src="subCate.bannerUrl" alt="" />
+            </div>
+            <div class="txt">{{subCate.name}}</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--3-->
+    <div class="right" v-if="categoryL1List && id == '1087004'">
+      <div class="banner" :style="{backgroundImage:`url(${categoryL1List[2].wapBannerUrl})`}"></div>
+      <div class="cateList">
+        <ul>
+          <li v-for="(subCate,index) in categoryL1List[2].subCateList" :key="index">
+            <div class="pic">
+              <img :src="subCate.bannerUrl" alt="" />
+            </div>
+            <div class="txt">{{subCate.name}}</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--4-->
+    <div class="right" v-if="categoryL1List && id == '109217021'">
+      <div class="banner" :style="{backgroundImage:`url(${categoryL1List[3].wapBannerUrl})`}"></div>
+      <div class="cateList">
+        <ul>
+          <li v-for="(subCate,index) in categoryL1List[3].subCateList" :key="index">
+            <div class="pic">
+              <img :src="subCate.bannerUrl" alt="" />
+            </div>
+            <div class="txt">{{subCate.name}}</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
   export default {
     props:{
-      categoryL1List:Array
+      categoryL1List:Array,
+      id:String
     }
   }
 </script>
 
 <style lang="less" scoped>
   .right{
-    margin-top: 91px;
-    margin-left: 2.16rem;
+    position: absolute;
+    top: 91px;
+    left:2.16rem ;
+    /*height: 100%;*/
+    /*margin-top: ;*/
+    /*margin-left: 2.16rem;*/
     padding: .4rem .4rem .28rem;
     background-color: #fff;
+
     .banner{
       position: relative;
       width: 100%;

@@ -33,6 +33,7 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   export default {
     data(){
       return {
@@ -46,20 +47,24 @@
         if(this.num == 1){
           this.$router.push('/home')
         }else if(this.num == 2){
-          this.$router.push('/item/cateList')
+          this.$router.push('/item/cateList/1022001')
         }else if(this.num == 3){
-          this.$router.push('/topic')
+          this.$router.push('/topic/9')
         }else if(this.num == 4){
           this.$router.push('/cart')
         }else if(this.num == 5){
-          this.$router.push('/profile')
+          if(this.user){
+            this.$router.push('/ucenter')
+          }else{
+            this.$router.push('/profile')
+          }
         }
       }
     },
     computed:{
-      path(){
-        return this.path2 = this.$route.path;
-      }
+      ...mapState({
+        user: state => state.user.user
+      })
     }
   }
 </script>

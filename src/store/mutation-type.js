@@ -8,4 +8,5 @@ export const RECEIVE_USER = 'receive_user';//获取用户信息
 export const RECEIVE_LOGOUT = 'receive_logout';//登出
 export const RECEIVE_SEARCH = 'receive_search';//搜索信息
 export const RECEIVE_AUTO_SEARCH = 'receive_auto_search';//自动搜索信息
+export const RECEIVE_TALK = 'receive_talk';//用户评论
 

@@ -18,5 +18,8 @@ export const reqCode = (data) => ajax(BASE+`/dl/yd/lsm`,data)
 export const reqSeach = ({csrf_token}) =>ajax(BASE+'/xhr/search/init.json',{csrf_token},'POST')
 
 //自动搜索http://m.you.163.com/xhr/search/searchAutoComplete.json?csrf_token=12c1977f99a1cbb725af3312b9e28aab
-export const reqAutoSearch = (data) =>ajax(BASE+'/xhr/search/searchAutoComplete.json',data)
+export const reqAutoSearch = (data) =>ajax(BASE+'/xhr/search/searchAutoComplete.json',data);
+
+//获取评论//m.you.163.com/topic/v1/look/getList.json?page=1&size=20&type=1&csrf_token=12c1977f99a1cbb725af3312b9e28aab
+export const reqTalk = (data) => ajax(BASE+'/topic/v1/look/getList.json?',data)
 

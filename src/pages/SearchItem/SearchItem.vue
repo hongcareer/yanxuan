@@ -49,10 +49,13 @@
     watch:{
       keywordPrefix(){
         const {keywordPrefix} = this;
-
-        this.isShow = true
-
-        this.$store.dispatch('getAutoSearch',keywordPrefix)
+        this.isShow = true;
+        if(this.intervalId){
+          clearInterval(this.intervalId)
+        }
+        this.intervalId = setTimeout(()=>{
+          this.$store.dispatch('getAutoSearch',keywordPrefix)
+        },1000)
         if(!keywordPrefix){
           this.isShow = false
         }

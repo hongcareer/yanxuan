@@ -46,48 +46,7 @@
   import {mapState} from 'vuex';
   import BScroll from 'better-scroll';
   export default {
-    mounted(){
-      this.$store.dispatch('getManual');
-      this._initScroll();
-    },
-    computed:{
-      ...mapState({
-        totalTabs:state => state.topic.totalTabs,
-        totalManual:state => state.topic.totalManual
-      }),
-    },
-    methods:{
-      _initScroll(){
-        if(!this.BScroll){
-          this.BScroll = new BScroll('.scroll',{
-            click:true,
-            pullUpLoad: {
-              threshold: -30// 当上拉距离超过100px时触发 pullingUp 事件
-            }
-          })
-        }else{
-          this.BScroll.on('pullingUp',()=>{
-            // this.BScroll.finishPullUp()
-            if(this.intervalId){
-              clearInterval(this.intervalId)
-            }
-            this.intervalId = setTimeout(()=>{
-              clearInterval(this.intervalId)
-              this.$store.dispatch('getAutoOne');//获取加载数据
-              this.BScroll.finishPullUp()
-            },1000)
-            this.BScroll.finishPullUp()
-          });
-          this.BScroll.finishPullUp()
-          this.BScroll.refresh()
-        }
-      },
-    },
-    watch:{
-      totalManual(){
-        this._initScroll();
-      }
-    },
+
   }
 </script>
 

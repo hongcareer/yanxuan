@@ -12,7 +12,7 @@
           </li>
         </ul>
       </div>
-    <ItemInfo :categoryL1List="categoryL1List"/>
+    <ItemInfo :categoryL1List="categoryL1List" :id="$route.params.id"/>
   </div>
 </template>
 
@@ -68,7 +68,7 @@
 
 
   .left{
-      position: absolute;
+      position: fixed;
       top: 91px;
       left: 0;
       width: 2.16rem;

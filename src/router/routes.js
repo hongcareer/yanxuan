@@ -1,7 +1,6 @@
 import Home from '../pages/Home/Home'
 import Item from '../pages/Item/Item'
 import Topic from '../pages/Topic/Topic'
-import Recom from '../pages/Topic/Recom/Recom'
 import Cart from '../pages/Cart/Cart'
 import Profile from '../pages/Profile/Profile'
 import ItemInfo from '../pages/Item/ItemInfo/ItemInfo';
@@ -15,8 +14,9 @@ export default [
       showFooter: true
     }
   },
+
   {
-    path:'/item/cateList',
+    path:'/item',
     component:Item,
     children:[
       {
@@ -29,53 +29,23 @@ export default [
     ],
     meta: {
       showFooter: true
-    }
+    },
+    redirect:'/item/cateList/1022001'
   },
+
+
+
+
+
   {
-    path:'/topic',
+    path:'/topic/:id',
     component:Topic,
     children:[
-      {
-        path:'/topic/9',
-        component:Recom,
-        meta: {
-          showFooter: true
-        },
-      },
-      {
-        path:'/topic/4',
-        component:Recom,
-        meta: {
-          showFooter: true
-        },
-      },
-      {
-        path:'/topic/5',
-        component:Recom,
-        meta: {
-          showFooter: true
-        },
-      },
-      {
-        path:'/topic/7',
-        component:Recom,
-        meta: {
-          showFooter: true
-        },
-      },
-      {
-        path:'/topic/6',
-        component:Recom,
-        meta: {
-          showFooter: true
-        },
-      },
 
     ],
     meta: {
       showFooter: true
     },
-    redirect: '/topic/9'
   },
   {
     path:'/cart',

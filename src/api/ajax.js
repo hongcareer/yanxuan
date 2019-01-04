@@ -14,7 +14,11 @@ export default function ajax(url,data={},method='GET'){
       if(data.keywordPrefix){
         url = url+`?keywordPrefix=${data.keywordPrefix}`
       }
-      console.log(url)
+      // page,size,type,csrf_token
+      if(data.page){
+        url = url+`?page=${data.page}&size=${data.size}&type=${data.type}&csrf_token=${data.csrf_token}`
+      }
+      // console.log(url)
       promise = axios.get(url,data)
         .then((response)=>{
           resolve(response.data)

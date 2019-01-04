@@ -4,7 +4,7 @@
       <div class="home-header-top">
         <a href="javascript:;" class="left"></a>
         <Search />
-        <a class="right" @click="$router.replace('/profile')">登录</a>
+        <a class="right" @click="$router.replace('/profile')" v-if="!user">登录</a>
       </div>
       <div class="home-header-bottom">
         <ul class="partShow" ref="partShowUl" :class="{active:!isShow}">
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   import BScroll from 'better-scroll';
   export default {
     data(){
@@ -75,6 +76,11 @@
       toggleNavShow(){
         this.isShow = !this.isShow;
       },
+    },
+    computed:{
+      ...mapState({
+        user:state => state.user.user,
+      })
     }
   }
 </script>

@@ -2,7 +2,10 @@
   <div>
     <div class="header">
        <div class="left">购物车</div>
-       <div class="right">领券</div>
+       <div class="right" v-if="user">
+         <img src="./images/quan.png" alt="">
+       </div>
+      <div class="right" v-else>领券</div>
     </div>
     <div class="footer">
       <ul class="up">
@@ -22,7 +25,7 @@
       <div class="down">
         <div class="d-t"></div>
         <div class="d-m">去添加点什么吧</div>
-        <div class="d-b" @click="$router.push('/profile')">登录</div>
+        <div class="d-b" @click="$router.push('/profile')" v-if="!user">登录</div>
       </div>
     </div>
 
@@ -30,7 +33,14 @@
 </template>
 
 <script>
-  export default {}
+  import {mapState} from 'vuex'
+  export default {
+    computed:{
+      ...mapState({
+        user:state => state.user.user
+      })
+    }
+  }
 </script>
 
 <style lang="less" scoped>
@@ -50,6 +60,9 @@
     right: 57px;
     font-size: .4rem;
     color: #B4282D;
+    img{
+
+    }
   }
 }
   .footer{
